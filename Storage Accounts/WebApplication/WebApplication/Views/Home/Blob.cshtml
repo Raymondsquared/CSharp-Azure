@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Blob";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<div>
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post))
+    {
+    <!-- form goes here -->
+
+        <input type="submit" value="Upload" />
+    }
+
+    @using (Html.BeginForm("List", "Home", FormMethod.Post))
+    {
+        <!-- form goes here -->
+
+        <input type="submit" value="List" />
+    }
+
+
+    @if (@ViewBag.Files != null)
+    {
+        foreach (var file in @ViewBag.Files)
+        {
+            <p>@file</p>
+        }
+    }    
+
+    <h4></h4>
+
+    @using (Html.BeginForm("Download", "Home", FormMethod.Post))
+    {
+    <!-- form goes here -->
+
+        <input type="submit" value="Download" />
+    }
+
+    @using (Html.BeginForm("Delete", "Home", FormMethod.Post))
+    {
+    <!-- form goes here -->
+
+        <input type="submit" value="Delete" />
+    }
+
+</div>
